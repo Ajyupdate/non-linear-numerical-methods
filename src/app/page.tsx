@@ -106,20 +106,33 @@ export default function Home() {
         }
     };
 
+
+
     return (
-        <Box p={8}>
+        <Box p={8} height={'100vh'} bg={'black'} color={'white'}>
             <VStack spacing={4}>
-                <Text fontSize="2xl">Square Root Calculation</Text>
+                <Text fontSize="2xl">Root Calculation Using Non-Linear Methods</Text>
                 <Input
+                    height={'55px'}
+                    width={'50%'}
                     placeholder="Enter a number"
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
                     type="number"
                 />
-                <Select value={method} onChange={(e) => setMethod(e.target.value)}>
-                    <option value="newton">Newton-Raphson Method</option>
-                    <option value="broyden">{`Broyden's Method`}</option>
-                </Select>
+                
+                
+                <Box display="flex" alignItems={'center'}  justifyContent="center" >
+            <Select
+                value={method}
+                onChange={(e) => setMethod(e.target.value)}
+                width="650px" // Set the width to 50%
+                height={'55px'}
+            >
+                <option value="newton">Newton-Raphson Method</option>
+                <option value="broyden">{`Broyden's Method`}</option>
+            </Select>
+        </Box>
                 <Button onClick={handleCompute} colorScheme="teal">
                     Compute
                 </Button>
